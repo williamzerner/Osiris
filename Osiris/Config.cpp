@@ -749,6 +749,7 @@ static void to_json(json& j, const Config::Backtrack& o)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 static void to_json(json& j, const Config::AntiAim& o)
 {
     const Config::AntiAim dummy;
@@ -997,12 +998,15 @@ static void to_json(json& j, const Config::StreamProofESP& o)
         auto& espJson = json["Esp"]["Weapons"];
         const auto& espConfig = esp.weapon;
 =======
+=======
+>>>>>>> parent of d135aa62... Save "AntiAim" config using nlohmann/json library
 void Config::save(size_t id) const noexcept
 {
     ::json j;
     j["Aimbot"] = aimbot;
     j["Triggerbot"] = triggerbot;
     j["Backtrack"] = backtrack;
+<<<<<<< HEAD
 >>>>>>> parent of d135aa62... Save "AntiAim" config using nlohmann/json library
 
         espJson["Enabled"] = espConfig.enabled;
@@ -1018,6 +1022,8 @@ void Config::save(size_t id) const noexcept
             snaplinesJson["Rainbow"] = snaplinesConfig.rainbow;
             snaplinesJson["Rainbow speed"] = snaplinesConfig.rainbowSpeed;
         }
+=======
+>>>>>>> parent of d135aa62... Save "AntiAim" config using nlohmann/json library
 
 <<<<<<< HEAD
         {
@@ -1032,6 +1038,14 @@ void Config::save(size_t id) const noexcept
             boxJson["Rainbow speed"] = boxConfig.rainbowSpeed;
         }
 =======
+    {
+        auto& antiAimJson = json["Anti aim"];
+        antiAimJson["Enabled"] = antiAim.enabled;
+        antiAimJson["Pitch"] = antiAim.pitch;
+        antiAimJson["Pitch angle"] = antiAim.pitchAngle;
+        antiAimJson["Yaw"] = antiAim.yaw;
+    }
+
     {
         auto& antiAimJson = json["Anti aim"];
         antiAimJson["Enabled"] = antiAim.enabled;
