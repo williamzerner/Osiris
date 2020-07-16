@@ -463,6 +463,7 @@
     <ClInclude Include="GameData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Hacks\StreamProofESP.h">
       <Filter>Hacks</Filter>
     </ClInclude>
@@ -472,5 +473,7 @@
     <ClInclude Include="nlohmann\json.hpp">
       <Filter>nlohmann</Filter>
     </ClInclude>
+=======
+>>>>>>> parent of 4db0eb3f... Create Hacks/StreamProofESP.h
   </ItemGroup>
 </Project>
