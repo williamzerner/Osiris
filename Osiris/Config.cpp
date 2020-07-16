@@ -800,6 +800,7 @@ static void save_map(json& j, const char* name, const std::unordered_map<std::st
     }
 }
 
+<<<<<<< HEAD
 static void to_json(json& j, const Config::StreamProofESP& o)
 {
     save_map(j, "Allies", o.allies);
@@ -809,6 +810,440 @@ static void to_json(json& j, const Config::StreamProofESP& o)
     save_map(j, "Loot Crates", o.lootCrates);
     save_map(j, "Other Entities", o.otherEntities);
 }
+=======
+    for (size_t i = 0; i < esp.players.size(); i++) {
+        auto& espJson = json["Esp"]["Players"][i];
+        const auto& espConfig = esp.players[i];
+
+        espJson["Enabled"] = espConfig.enabled;
+        espJson["Font"] = espConfig.font;
+        espJson["HP side"] = espConfig.hpside;
+        espJson["Armor side"] = espConfig.armorside;
+
+        {
+            auto& snaplinesJson = espJson["Snaplines"];
+            const auto& snaplinesConfig = espConfig.snaplines;
+
+            snaplinesJson["Enabled"] = snaplinesConfig.enabled;
+            snaplinesJson["Color"][0] = snaplinesConfig.color[0];
+            snaplinesJson["Color"][1] = snaplinesConfig.color[1];
+            snaplinesJson["Color"][2] = snaplinesConfig.color[2];
+            snaplinesJson["Rainbow"] = snaplinesConfig.rainbow;
+            snaplinesJson["Rainbow speed"] = snaplinesConfig.rainbowSpeed;
+        }
+
+        {
+            auto& eyeTracesJson = espJson["Eye traces"];
+            const auto& eyeTracesConfig = espConfig.eyeTraces;
+
+            eyeTracesJson["Enabled"] = eyeTracesConfig.enabled;
+            eyeTracesJson["Color"][0] = eyeTracesConfig.color[0];
+            eyeTracesJson["Color"][1] = eyeTracesConfig.color[1];
+            eyeTracesJson["Color"][2] = eyeTracesConfig.color[2];
+            eyeTracesJson["Rainbow"] = eyeTracesConfig.rainbow;
+            eyeTracesJson["Rainbow speed"] = eyeTracesConfig.rainbowSpeed;
+        }
+
+        {
+            auto& boxJson = espJson["Box"];
+            const auto& boxConfig = espConfig.box;
+
+            boxJson["Enabled"] = boxConfig.enabled;
+            boxJson["Color"][0] = boxConfig.color[0];
+            boxJson["Color"][1] = boxConfig.color[1];
+            boxJson["Color"][2] = boxConfig.color[2];
+            boxJson["Rainbow"] = boxConfig.rainbow;
+            boxJson["Rainbow speed"] = boxConfig.rainbowSpeed;
+        }
+
+        espJson["Box type"] = espConfig.boxType;
+
+        {
+            auto& nameJson = espJson["Name"];
+            const auto& nameConfig = espConfig.name;
+
+            nameJson["Enabled"] = nameConfig.enabled;
+            nameJson["Color"][0] = nameConfig.color[0];
+            nameJson["Color"][1] = nameConfig.color[1];
+            nameJson["Color"][2] = nameConfig.color[2];
+            nameJson["Rainbow"] = nameConfig.rainbow;
+            nameJson["Rainbow speed"] = nameConfig.rainbowSpeed;
+        }
+
+        {
+            auto& healthJson = espJson["Health"];
+            const auto& healthConfig = espConfig.health;
+
+            healthJson["Enabled"] = healthConfig.enabled;
+            healthJson["Color"][0] = healthConfig.color[0];
+            healthJson["Color"][1] = healthConfig.color[1];
+            healthJson["Color"][2] = healthConfig.color[2];
+            healthJson["Rainbow"] = healthConfig.rainbow;
+            healthJson["Rainbow speed"] = healthConfig.rainbowSpeed;
+        }
+
+        {
+            auto& healthBarJson = espJson["Health bar"];
+            const auto& healthBarConfig = espConfig.healthBar;
+
+            healthBarJson["Enabled"] = healthBarConfig.enabled;
+            healthBarJson["Color"][0] = healthBarConfig.color[0];
+            healthBarJson["Color"][1] = healthBarConfig.color[1];
+            healthBarJson["Color"][2] = healthBarConfig.color[2];
+            healthBarJson["Rainbow"] = healthBarConfig.rainbow;
+            healthBarJson["Rainbow speed"] = healthBarConfig.rainbowSpeed;
+        }
+
+        {
+            auto& armorJson = espJson["Armor"];
+            const auto& armorConfig = espConfig.armor;
+
+            armorJson["Enabled"] = armorConfig.enabled;
+            armorJson["Color"][0] = armorConfig.color[0];
+            armorJson["Color"][1] = armorConfig.color[1];
+            armorJson["Color"][2] = armorConfig.color[2];
+            armorJson["Rainbow"] = armorConfig.rainbow;
+            armorJson["Rainbow speed"] = armorConfig.rainbowSpeed;
+        }
+
+        {
+            auto& armorBarJson = espJson["Armor bar"];
+            const auto& armorBarConfig = espConfig.armorBar;
+
+            armorBarJson["Enabled"] = armorBarConfig.enabled;
+            armorBarJson["Color"][0] = armorBarConfig.color[0];
+            armorBarJson["Color"][1] = armorBarConfig.color[1];
+            armorBarJson["Color"][2] = armorBarConfig.color[2];
+            armorBarJson["Rainbow"] = armorBarConfig.rainbow;
+            armorBarJson["Rainbow speed"] = armorBarConfig.rainbowSpeed;
+        }
+
+        {
+            auto& moneyJson = espJson["Money"];
+            const auto& moneyConfig = espConfig.money;
+
+            moneyJson["Enabled"] = moneyConfig.enabled;
+            moneyJson["Color"][0] = moneyConfig.color[0];
+            moneyJson["Color"][1] = moneyConfig.color[1];
+            moneyJson["Color"][2] = moneyConfig.color[2];
+            moneyJson["Rainbow"] = moneyConfig.rainbow;
+            moneyJson["Rainbow speed"] = moneyConfig.rainbowSpeed;
+        }
+
+        {
+            auto& headDotJson = espJson["Head dot"];
+            const auto& headDotConfig = espConfig.headDot;
+
+            headDotJson["Enabled"] = headDotConfig.enabled;
+            headDotJson["Color"][0] = headDotConfig.color[0];
+            headDotJson["Color"][1] = headDotConfig.color[1];
+            headDotJson["Color"][2] = headDotConfig.color[2];
+            headDotJson["Rainbow"] = headDotConfig.rainbow;
+            headDotJson["Rainbow speed"] = headDotConfig.rainbowSpeed;
+        }
+
+        {
+            auto& activeWeaponJson = espJson["Active weapon"];
+            const auto& activeWeaponConfig = espConfig.activeWeapon;
+
+            activeWeaponJson["Enabled"] = activeWeaponConfig.enabled;
+            activeWeaponJson["Color"][0] = activeWeaponConfig.color[0];
+            activeWeaponJson["Color"][1] = activeWeaponConfig.color[1];
+            activeWeaponJson["Color"][2] = activeWeaponConfig.color[2];
+            activeWeaponJson["Rainbow"] = activeWeaponConfig.rainbow;
+            activeWeaponJson["Rainbow speed"] = activeWeaponConfig.rainbowSpeed;
+        }
+
+        {
+            auto& outlineJson = espJson["Outline"];
+            const auto& outlineConfig = espConfig.outline;
+
+            outlineJson["Enabled"] = outlineConfig.enabled;
+            outlineJson["Color"][0] = outlineConfig.color[0];
+            outlineJson["Color"][1] = outlineConfig.color[1];
+            outlineJson["Color"][2] = outlineConfig.color[2];
+            outlineJson["Rainbow"] = outlineConfig.rainbow;
+            outlineJson["Rainbow speed"] = outlineConfig.rainbowSpeed;
+        }
+        {
+            auto& ammoJson = espJson["Ammo"];
+            const auto& ammoConfig = espConfig.ammo;
+
+            ammoJson["Enabled"] = ammoConfig.enabled;
+            ammoJson["Color"][0] = ammoConfig.color[0];
+            ammoJson["Color"][1] = ammoConfig.color[1];
+            ammoJson["Color"][2] = ammoConfig.color[2];
+            ammoJson["Rainbow"] = ammoConfig.rainbow;
+            ammoJson["Rainbow speed"] = ammoConfig.rainbowSpeed;
+        }
+        {
+            auto& distanceJson = espJson["Distance"];
+            const auto& distanceConfig = espConfig.distance;
+
+            distanceJson["Enabled"] = distanceConfig.enabled;
+            distanceJson["Color"][0] = distanceConfig.color[0];
+            distanceJson["Color"][1] = distanceConfig.color[1];
+            distanceJson["Color"][2] = distanceConfig.color[2];
+            distanceJson["Rainbow"] = distanceConfig.rainbow;
+            distanceJson["Rainbow speed"] = distanceConfig.rainbowSpeed;
+        }
+
+        espJson["Dead ESP"] = espConfig.deadesp;
+        espJson["Max distance"] = espConfig.maxDistance;
+    }
+
+    {
+        auto& espJson = json["Esp"]["Weapons"];
+        const auto& espConfig = esp.weapon;
+
+        espJson["Enabled"] = espConfig.enabled;
+        espJson["Font"] = espConfig.font;
+        {
+            auto& snaplinesJson = espJson["Snaplines"];
+            const auto& snaplinesConfig = espConfig.snaplines;
+
+            snaplinesJson["Enabled"] = snaplinesConfig.enabled;
+            snaplinesJson["Color"][0] = snaplinesConfig.color[0];
+            snaplinesJson["Color"][1] = snaplinesConfig.color[1];
+            snaplinesJson["Color"][2] = snaplinesConfig.color[2];
+            snaplinesJson["Rainbow"] = snaplinesConfig.rainbow;
+            snaplinesJson["Rainbow speed"] = snaplinesConfig.rainbowSpeed;
+        }
+
+        {
+            auto& boxJson = espJson["Box"];
+            const auto& boxConfig = espConfig.box;
+
+            boxJson["Enabled"] = boxConfig.enabled;
+            boxJson["Color"][0] = boxConfig.color[0];
+            boxJson["Color"][1] = boxConfig.color[1];
+            boxJson["Color"][2] = boxConfig.color[2];
+            boxJson["Rainbow"] = boxConfig.rainbow;
+            boxJson["Rainbow speed"] = boxConfig.rainbowSpeed;
+        }
+
+        espJson["Box type"] = espConfig.boxType;
+
+        {
+            auto& outlineJson = espJson["Outline"];
+            const auto& outlineConfig = espConfig.outline;
+
+            outlineJson["Enabled"] = outlineConfig.enabled;
+            outlineJson["Color"][0] = outlineConfig.color[0];
+            outlineJson["Color"][1] = outlineConfig.color[1];
+            outlineJson["Color"][2] = outlineConfig.color[2];
+            outlineJson["Rainbow"] = outlineConfig.rainbow;
+            outlineJson["Rainbow speed"] = outlineConfig.rainbowSpeed;
+        }
+
+        {
+            auto& nameJson = espJson["Name"];
+            const auto& nameConfig = espConfig.name;
+
+            nameJson["Enabled"] = nameConfig.enabled;
+            nameJson["Color"][0] = nameConfig.color[0];
+            nameJson["Color"][1] = nameConfig.color[1];
+            nameJson["Color"][2] = nameConfig.color[2];
+            nameJson["Rainbow"] = nameConfig.rainbow;
+            nameJson["Rainbow speed"] = nameConfig.rainbowSpeed;
+        }
+
+        {
+            auto& distanceJson = espJson["Distance"];
+            const auto& distanceConfig = espConfig.distance;
+
+            distanceJson["Enabled"] = distanceConfig.enabled;
+            distanceJson["Color"][0] = distanceConfig.color[0];
+            distanceJson["Color"][1] = distanceConfig.color[1];
+            distanceJson["Color"][2] = distanceConfig.color[2];
+            distanceJson["Rainbow"] = distanceConfig.rainbow;
+            distanceJson["Rainbow speed"] = distanceConfig.rainbowSpeed;
+        }
+
+        espJson["Max distance"] = espConfig.maxDistance;
+    }
+
+    for (size_t i = 0; i < esp.dangerZone.size(); i++) {
+        auto& espJson = json["Esp"]["Danger Zone"][i];
+        const auto& espConfig = esp.dangerZone[i];
+
+        espJson["Enabled"] = espConfig.enabled;
+        espJson["Font"] = espConfig.font;
+        {
+            auto& snaplinesJson = espJson["Snaplines"];
+            const auto& snaplinesConfig = espConfig.snaplines;
+
+            snaplinesJson["Enabled"] = snaplinesConfig.enabled;
+            snaplinesJson["Color"][0] = snaplinesConfig.color[0];
+            snaplinesJson["Color"][1] = snaplinesConfig.color[1];
+            snaplinesJson["Color"][2] = snaplinesConfig.color[2];
+            snaplinesJson["Rainbow"] = snaplinesConfig.rainbow;
+            snaplinesJson["Rainbow speed"] = snaplinesConfig.rainbowSpeed;
+        }
+
+        {
+            auto& boxJson = espJson["Box"];
+            const auto& boxConfig = espConfig.box;
+
+            boxJson["Enabled"] = boxConfig.enabled;
+            boxJson["Color"][0] = boxConfig.color[0];
+            boxJson["Color"][1] = boxConfig.color[1];
+            boxJson["Color"][2] = boxConfig.color[2];
+            boxJson["Rainbow"] = boxConfig.rainbow;
+            boxJson["Rainbow speed"] = boxConfig.rainbowSpeed;
+        }
+
+        espJson["Box type"] = espConfig.boxType;
+
+        {
+            auto& outlineJson = espJson["Outline"];
+            const auto& outlineConfig = espConfig.outline;
+
+            outlineJson["Enabled"] = outlineConfig.enabled;
+            outlineJson["Color"][0] = outlineConfig.color[0];
+            outlineJson["Color"][1] = outlineConfig.color[1];
+            outlineJson["Color"][2] = outlineConfig.color[2];
+            outlineJson["Rainbow"] = outlineConfig.rainbow;
+            outlineJson["Rainbow speed"] = outlineConfig.rainbowSpeed;
+        }
+
+        {
+            auto& nameJson = espJson["Name"];
+            const auto& nameConfig = espConfig.name;
+
+            nameJson["Enabled"] = nameConfig.enabled;
+            nameJson["Color"][0] = nameConfig.color[0];
+            nameJson["Color"][1] = nameConfig.color[1];
+            nameJson["Color"][2] = nameConfig.color[2];
+            nameJson["Rainbow"] = nameConfig.rainbow;
+            nameJson["Rainbow speed"] = nameConfig.rainbowSpeed;
+        }
+
+        {
+            auto& distanceJson = espJson["Distance"];
+            const auto& distanceConfig = espConfig.distance;
+
+            distanceJson["Enabled"] = distanceConfig.enabled;
+            distanceJson["Color"][0] = distanceConfig.color[0];
+            distanceJson["Color"][1] = distanceConfig.color[1];
+            distanceJson["Color"][2] = distanceConfig.color[2];
+            distanceJson["Rainbow"] = distanceConfig.rainbow;
+            distanceJson["Rainbow speed"] = distanceConfig.rainbowSpeed;
+        }
+
+        espJson["Max distance"] = espConfig.maxDistance;
+    }
+
+    for (size_t i = 0; i < esp.projectiles.size(); i++) {
+        auto& espJson = json["Esp"]["Projectiles"][i];
+        const auto& espConfig = esp.projectiles[i];
+
+        espJson["Enabled"] = espConfig.enabled;
+        espJson["Font"] = espConfig.font;
+        {
+            auto& snaplinesJson = espJson["Snaplines"];
+            const auto& snaplinesConfig = espConfig.snaplines;
+
+            snaplinesJson["Enabled"] = snaplinesConfig.enabled;
+            snaplinesJson["Color"][0] = snaplinesConfig.color[0];
+            snaplinesJson["Color"][1] = snaplinesConfig.color[1];
+            snaplinesJson["Color"][2] = snaplinesConfig.color[2];
+            snaplinesJson["Rainbow"] = snaplinesConfig.rainbow;
+            snaplinesJson["Rainbow speed"] = snaplinesConfig.rainbowSpeed;
+        }
+
+        {
+            auto& boxJson = espJson["Box"];
+            const auto& boxConfig = espConfig.box;
+
+            boxJson["Enabled"] = boxConfig.enabled;
+            boxJson["Color"][0] = boxConfig.color[0];
+            boxJson["Color"][1] = boxConfig.color[1];
+            boxJson["Color"][2] = boxConfig.color[2];
+            boxJson["Rainbow"] = boxConfig.rainbow;
+            boxJson["Rainbow speed"] = boxConfig.rainbowSpeed;
+        }
+
+        espJson["Box type"] = espConfig.boxType;
+
+        {
+            auto& outlineJson = espJson["Outline"];
+            const auto& outlineConfig = espConfig.outline;
+
+            outlineJson["Enabled"] = outlineConfig.enabled;
+            outlineJson["Color"][0] = outlineConfig.color[0];
+            outlineJson["Color"][1] = outlineConfig.color[1];
+            outlineJson["Color"][2] = outlineConfig.color[2];
+            outlineJson["Rainbow"] = outlineConfig.rainbow;
+            outlineJson["Rainbow speed"] = outlineConfig.rainbowSpeed;
+        }
+
+        {
+            auto& nameJson = espJson["Name"];
+            const auto& nameConfig = espConfig.name;
+
+            nameJson["Enabled"] = nameConfig.enabled;
+            nameJson["Color"][0] = nameConfig.color[0];
+            nameJson["Color"][1] = nameConfig.color[1];
+            nameJson["Color"][2] = nameConfig.color[2];
+            nameJson["Rainbow"] = nameConfig.rainbow;
+            nameJson["Rainbow speed"] = nameConfig.rainbowSpeed;
+        }
+
+        {
+            auto& distanceJson = espJson["Distance"];
+            const auto& distanceConfig = espConfig.distance;
+
+            distanceJson["Enabled"] = distanceConfig.enabled;
+            distanceJson["Color"][0] = distanceConfig.color[0];
+            distanceJson["Color"][1] = distanceConfig.color[1];
+            distanceJson["Color"][2] = distanceConfig.color[2];
+            distanceJson["Rainbow"] = distanceConfig.rainbow;
+            distanceJson["Rainbow speed"] = distanceConfig.rainbowSpeed;
+        }
+
+        espJson["Max distance"] = espConfig.maxDistance;
+    }
+
+    {
+        auto& visualsJson = json["visuals"];
+        visualsJson["disablePostProcessing"] = visuals.disablePostProcessing;
+        visualsJson["inverseRagdollGravity"] = visuals.inverseRagdollGravity;
+        visualsJson["noFog"] = visuals.noFog;
+        visualsJson["no3dSky"] = visuals.no3dSky;
+        visualsJson["No aim punch"] = visuals.noAimPunch;
+        visualsJson["No view punch"] = visuals.noViewPunch;
+        visualsJson["noHands"] = visuals.noHands;
+        visualsJson["noSleeves"] = visuals.noSleeves;
+        visualsJson["noWeapons"] = visuals.noWeapons;
+        visualsJson["noSmoke"] = visuals.noSmoke;
+        visualsJson["noBlur"] = visuals.noBlur;
+        visualsJson["noScopeOverlay"] = visuals.noScopeOverlay;
+        visualsJson["noGrass"] = visuals.noGrass;
+        visualsJson["noShadows"] = visuals.noShadows;
+        visualsJson["wireframeSmoke"] = visuals.wireframeSmoke;
+        visualsJson["Zoom"] = visuals.zoom;
+        visualsJson["Zoom key"] = visuals.zoomKey;
+        visualsJson["thirdperson"] = visuals.thirdperson;
+        visualsJson["thirdpersonKey"] = visuals.thirdpersonKey;
+        visualsJson["thirdpersonDistance"] = visuals.thirdpersonDistance;
+        visualsJson["viewmodelFov"] = visuals.viewmodelFov;
+        visualsJson["Fov"] = visuals.fov;
+        visualsJson["farZ"] = visuals.farZ;
+        visualsJson["flashReduction"] = visuals.flashReduction;
+        visualsJson["brightness"] = visuals.brightness;
+        visualsJson["skybox"] = visuals.skybox;
+
+        {
+            auto& worldJson = visualsJson["World"];
+            worldJson["Enabled"] = visuals.world.enabled;
+            worldJson["Color"][0] = visuals.world.color[0];
+            worldJson["Color"][1] = visuals.world.color[1];
+            worldJson["Color"][2] = visuals.world.color[2];
+            worldJson["Rainbow"] = visuals.world.rainbow;
+            worldJson["Rainbow speed"] = visuals.world.rainbowSpeed;
+        }
+>>>>>>> parent of 8ff144a2... Do not save config of legacy Esp
 
 static void to_json(json& j, const Config::Reportbot& o)
 {
